@@ -3,6 +3,9 @@ const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 console.log(logins);
 let login = prompt();
 const isLoginValid = function(login) {
+  if (login === null || login === NaN) {
+    login = 0;
+  }
   if (login.length >= 4 && login.length <= 16) {
     return true;
   }
