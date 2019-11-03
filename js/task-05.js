@@ -1,37 +1,17 @@
 'use strict';
-let message;
-message = prompt('Впишите страну доставки:');
+const checkForSpam = function(str) {
+  const message = str.toLowerCase();
 
-if (message === null) {
-  alert('Отменено пользователем!');
-} else {
-  message = message.toLowerCase();
-  let price;
-  switch (message) {
-    case 'китай': {
-      price = 100;
-      alert(`Доставка в Китай будет стоить ${price} кредитов`);
-      break;
-    }
-    case 'чили':
-      price = 250;
-      alert(`Доставка в Чили будет стоить ${price} кредитов`);
-      break;
-    case 'австралия':
-      price = 170;
-      alert(`Доставка в Австралию будет стоить ${price} кредитов`);
-      break;
-    case 'индия':
-      price = 80;
-      alert(`Доставка в Индию будет стоить ${price} кредитов`);
-      break;
-    case 'ямайка':
-      price = 120;
-      alert(`Доставка в Ямайку будет стоить ${price} кредитов`);
-      break;
-    default: {
-      alert('В вашей стране доставка не доступна');
-      break;
-    }
+  if (message.includes('spam') || message.includes('sale')) {
+    return true;
   }
-}
+  return false;
+};
+
+console.log(checkForSpam('Latest technology news')); // false
+
+console.log(checkForSpam('JavaScript weekly newsletter')); // false
+
+console.log(checkForSpam('Get best sale offers now!')); // true
+
+console.log(checkForSpam('[SPAM] How to earn fast money?')); // true

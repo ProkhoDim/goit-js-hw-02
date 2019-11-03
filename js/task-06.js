@@ -1,5 +1,6 @@
 'use strict';
 let input;
+const numbers = [];
 let total = 0;
 input = prompt('Напишите любое число:');
 
@@ -9,9 +10,12 @@ while (input !== null && input !== NaN) {
     input = 0;
   }
   input = Number.parseFloat(input);
-  total += input;
-  console.log(total);
+  numbers.push(input);
+  console.log(numbers);
   input = prompt('Напишите любое число:');
 }
-
+for (input of numbers) {
+  total = total + input;
+  console.log(total);
+}
 alert(`Сумма = ${total}`);

@@ -1,13 +1,19 @@
 'use strict';
-const ADMIN_PASSWORD = 'jqueryismyjam';
-let message;
-message = prompt('Введите пароль администратора', message);
+const findLongestWord = function(message) {
+  const words = message.split(' ');
+  let wordsLong = words[0];
 
-if (message === ADMIN_PASSWORD) {
-  alert('Добро пожаловать!');
-} else if (message !== ADMIN_PASSWORD && message !== null) {
-  alert('Доступ запрещен, неверный пароль!');
-  location.reload();
-} else {
-  alert('Отменено пользователем!');
-}
+  for (const word of words) {
+    if (word.length > wordsLong.length) {
+      wordsLong = word;
+    }
+  }
+
+  return wordsLong;
+};
+
+console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // 'jumped'
+
+console.log(findLongestWord('Google do a roll')); // 'Google'
+
+console.log(findLongestWord('May the force be with you')); // 'force'

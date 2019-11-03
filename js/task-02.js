@@ -1,16 +1,25 @@
 'use strict';
-const total = 100;
-let ordered = 50;
-// ordered = prompt(ordered);
-// if (isNaN(Number(ordered))) {
-//   alert('введите число без букв!');
-//   location.reload();
-// } else
-console.log('ordered =', ordered);
-if (ordered <= total) {
-  // alert('Заказ оформлен, с вами свяжется менеджер');
-  console.log('Заказ оформлен, с вами свяжется менеджер');
-} else {
-  // alert('На складе недостаточно твоаров!');
-  console.log('На складе недостаточно твоаров!');
-}
+const calculateEngravingPrice = function(message, pricePerWord) {
+  const messageArray = message.split(' ');
+  const price = messageArray.length * pricePerWord;
+
+  return price;
+};
+
+console.log(
+  calculateEngravingPrice(
+    'Proin sociis natoque et magnis parturient montes mus',
+    10,
+  ),
+); // 80
+
+console.log(
+  calculateEngravingPrice(
+    'Proin sociis natoque et magnis parturient montes mus',
+    20,
+  ),
+); // 160
+
+console.log(calculateEngravingPrice('Donec orci lectus aliquam est', 40)); // 200
+
+console.log(calculateEngravingPrice('Donec orci lectus aliquam est', 20)); // 100
